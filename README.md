@@ -12,3 +12,4 @@ Yapılan eklemelerin ekran görüntüleri:
 ![2](https://github.com/ahmetaltuntas70/PhoneBookHumanGroupPL/assets/111458472/667ab371-29ba-4205-9d1d-d65ef0aef86f)
 ![3](https://github.com/ahmetaltuntas70/PhoneBookHumanGroupPL/assets/111458472/0b07ca10-6076-4b68-b4a7-a365f03eb836)
 ![4](https://github.com/ahmetaltuntas70/PhoneBookHumanGroupPL/assets/111458472/e6bbb146-dd2f-40d5-9bf0-7c0ea918abe7)
+![56](https://github.com/ahmetaltuntas70/PhoneBookHumanGroupPL/assets/111458472/8c64a3fd-2ae9-4984-995d-751dbffc91dd)
