@@ -1,0 +1,90 @@
+﻿@model MemberPhoneVM
+@{
+    ViewData["Title"] = "EditPhone";
+}
+
+
+<div class="row">
+    <a href="/Home/Phones" class="btn btn-primary">Rehbere Geri Dön</a>
+</div>
+<form asp-controller="Home" asp-action="EditPhone" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input  type="hidden"  asp-for="MemberId"/>
+
+    <div class="form-group">
+        <label for="phonegroups">Rehber Grubu Seçiniz:</label>
+        <select asp-for="PhoneGroupId" id="phonegroups" class="form-control">
+
+            @foreach (PhoneGroupVM item in ViewBag.PhoneGroups)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+            <option value="0">Diğer</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Grup Adı:</label>
+        <input type="text" id="anotherPhoneGroup" class="form-control" asp-for="AnotherPhoneGroupName" />
+    </div>
+
+
+    <div>
+        <label>Kişi Adı Soyadı:</label>
+        <input type="text" asp-for="PhoneGroupNameSurname" class="form-control"  />
+    </div>
+    <div>
+        <label>Kişi Adı Soyadı:</label>
+        <input type="text" asp-for="PhoneNumber" class="form-control" />
+    </div>
+   
+   
+    <div class="d-flex ">
+        <button class="btn btn-primary">
+            Güncelle
+        </button>
+    </div>
+</form>
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            if (@ViewBag.PhoneGroups.Count== 0) {
+                $("#anotherPhoneGroup").prop('disabled', false); //input aktif
+                $("#phonegroups").prop('disabled', true); //combo pasif
+            }
+            else {
+                $("#anotherPhoneGroup").prop('disabled', true); //input pasif
+                $("#phonegroups").prop('disabled', false); //combo aktif
+
+                var defaultid = @ViewBag.DefaultPhoneGroupId;
+                $("#phonegroups").val(defaultid);
+
+
+            }
+
+
+
+            $("#phonegroups").change(function () {
+                var selected = $(this).val();
+                if (selected == 0) {
+                    $("#anotherPhoneGroup").prop('disabled', false); //input aktif
+                }
+                else {
+                    $("#anotherPhoneGroup").prop('disabled', true); //input pasif
+                    $("#anotherPhoneGroup").val('');
+
+
+                }
+
+
+            });
+
+        });// document ready burada bitti
+
+
+    </script>
+
+}

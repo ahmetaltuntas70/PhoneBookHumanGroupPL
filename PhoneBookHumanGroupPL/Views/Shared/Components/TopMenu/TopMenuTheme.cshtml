@@ -1,0 +1,96 @@
+﻿@model MemberVM
+
+<nav class="navbar navbar-expand-lg custom_nav-container">
+    <div class="custom_menu-btn">
+        <button onclick="openNav()">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+        </button>
+    </div>
+    <div id="myNav" class="overlay">
+        <div class="menu_btn-style ">
+            <button onclick="closeNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+            </button>
+        </div>
+        <div class="overlay-content">
+            <a class="" href="index.html">
+                Home
+            </a>
+            <a class="" href="about.html">
+                About
+            </a>
+            <a class="active" href="service.html">
+                Services
+            </a>
+            <a class="" href="testimonial.html">
+                Testimonial
+            </a>
+            <a class="" href="news.html">
+                Latest News
+            </a>
+            <a class="" href="/Contact/Index">
+                Contact
+            </a>
+             @if (!string.IsNullOrEmpty(Model.Email))
+            {
+                <a class="" href="/Home/Phones">
+                   Rehberim
+                </a>
+                <a class="" href="/Account/Logout">
+                   Çıkış Yap
+                </a>
+            }
+            else
+            {
+                <a class="" href="/Account/Login">
+                   Giriş Yap
+                </a>
+            }
+        </div>
+    </div>
+    <a class="navbar-brand" href="index.html">
+        <span>
+            Seomark
+        </span>
+    </a>
+    <div class="user_option">
+        <form class="form-inline">
+            <button class="btn  nav_search-btn" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
+        @if (!string.IsNullOrEmpty(Model.Email))
+        {
+            <a asp-controller="Account" asp-action="Logout">
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login">
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+        }
+
+    </div>
+    <div class="name_style">
+        <h6>
+            S
+            e
+            o
+            M
+            a
+            r
+            k
+            e
+            t
+            i
+            n
+            g
+        </h6>
+    </div>
+</nav>

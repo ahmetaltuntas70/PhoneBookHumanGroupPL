@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutPhoneBookTheme.cshtml";
+}
+
+ 
+
+@if (TempData["ForgotPasswordSuccessMsg"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>BİLGİ!</strong> @TempData["ForgotPasswordSuccessMsg"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <br />
+}
+
+
+@if (TempData["ForgotPasswordFailedMsg"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>DİKKAT!</strong> @TempData["ForgotPasswordFailedMsg"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <br />
+}
+<h3>Giriş Yapabilirsiniz...</h3>
+
+<div class="row">
+    <div class="col-6 offset-3 offset-3">
+
+        <form asp-controller="Account" asp-action="Login" method="post">
+            <div  asp-validation-summary="All" class="text-danger" ></div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" class="form-control" name="email" value="@ViewBag.Email"/>
+            </div>
+
+            <div class="form-group">
+                <label>Şifre:</label>
+                <input type="password" class="form-control" name="password" />
+
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">GİRİŞ YAP</button>
+            </div>
+
+
+            <div class="form-group">
+                <a href="/Account/ForgotPassword?email=@ViewBag.Email">Şifremi Unuttum!</a>
+
+                <a asp-controller="Account" asp-action="ForgotPassword"
+                asp-route-email="@ViewBag.Email"
+                >Şifremi Unuttum!</a>
+
+
+            </div>
+        </form>
+
+
+    </div>
+
+</div>
+
